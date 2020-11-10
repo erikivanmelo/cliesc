@@ -46,20 +46,28 @@ Attributes macros
 
 <code>A_BOLD</code>
 Turn on the bold or increased intensity
+
 <code>A_UNDERLINE</code>
 Turn on the underline
+
 <code>A_DUNDERLINE</code>
 Turn on the double underline
+
 <code>A_BLINK</code>
 Turn on the blinking
+
 <code>A_RBLINK</code>
 Turn on the rapid blinking [not widely supported]
+
 <code>A_ITALIC</code>
 Turn on the italic (Sometimes treated as inverse or blink) [not widely supported]
+
 <code>A_REVERS</code>
 Swaps foreground and background colors,
+
 <code>A_STRIKE</code>
 Turn on the strike through
+
 <code>A_INVISIBLE</code>
 Make the text invisible
 
