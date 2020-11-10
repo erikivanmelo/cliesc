@@ -41,59 +41,36 @@ Show cursor
 <code>chide()</code>
 Hide cursor
 
-Font functions
+Attributes macros
 ======
 
-<code>freset()</code>
-Reset the font attribute
-
-<code>fbold()</code>
+<code>A_BOLD</code>
 Turn on the bold or increased intensity
-
-<code>ffaint()</code>
-Turn on the faint or decreased intensity
-
-<code>fitalic()</code>
-Turn on the italic (Sometimes treated as inverse or blink) [not widely supported]
-
-<code>funderline()</code>
+<code>A_UNDERLINE</code>
 Turn on the underline
-
-<code>fblink()</code>
-Turn on the blinking
-
-<code>frblink()</code>
-Turn on the rapid blinking [not widely supported]
-
-<code>frevers()</code>
-Swaps foreground and background colors,
-
-<code>fhide()</code>
-Hides text
-
-<code>fstrike()</code>
-Turn on the strike through
-
-<code>fdunderline()</code>
+<code>A_DUNDERLINE</code>
 Turn on the double underline
+<code>A_BLINK</code>
+Turn on the blinking
+<code>A_RBLINK</code>
+Turn on the rapid blinking [not widely supported]
+<code>A_ITALIC</code>
+Turn on the italic (Sometimes treated as inverse or blink) [not widely supported]
+<code>A_REVERS</code>
+Swaps foreground and background colors,
+<code>A_STRIKE</code>
+Turn on the strike through
+<code>A_INVISIBLE</code>
+Make the text invisible
 
-<code>fboldoff()</code>
-Turn off the bold
+Attributes functions
+======
 
-<code>fitalicoff()</code>
-Turn off the italic
+<code>attrreset()</code>
+Resets the font attribute
 
-<code>funderlineoff()</code>
-Turn off the underline
+<code>void attr(int attr)</code>
+Turn on font attributes
 
-<code>fblinkoff()</code>
-Turn off the blinking
-
-<code>freversoff()</code>
-Turn off the revers text
-
-<code>fshow()</code>
-Shows the text
-
-<code>fsrikeoff()</code>
-Turn off the strike through
+<code>void attroff(int attr)</code>
+Turn on font attributes

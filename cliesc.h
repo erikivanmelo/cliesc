@@ -3,6 +3,20 @@
 
 #include <stdio.h>
 
+/* ATTR MACROS */
+
+
+#define A_BOLD 			1 /* Turn on the bold or increased intensity */
+#define A_UNDERLINE 	2 /* Turn on the underline */
+#define A_DUNDERLINE 	4 /* Turn on the double underline */
+#define A_BLINK 		8 /* Turn on the blinking */
+#define A_RBLINK 		16 /* Turn on the rapid blinking [not widely supported] */
+#define A_ITALIC 		32 /* Turn on the italic (Sometimes treated as inverse or blink) [not widely supported] */
+#define A_REVERS 		64 /* Swaps foreground and background colors, */
+#define A_STRIKE 		128 /* Turn on the strike through */
+#define A_INVISIBLE 	256 /* Make the text invisible */
+
+
 /* CURSOR FUNCTIONS */
 
 /* Moves the cursor n up */
@@ -44,59 +58,32 @@
 
 /* FONT FUNCTIONS */
 
-/* Reset the font attribute */
-#define freset()		printf("\033[0m");
+/* Resets the font attribute */
+#define attrreset()	printf("\033[22m\033[24m\033[25m\033[23m\033[27m\033[29m\033[28m")
 
-/* Turn on the bold or increased intensity */
-#define fbold()			printf("\033[1m");
+/* Turn on font attributes */
+void attr(int attr){
+	if (attr & A_BOLD 		) printf("\033[1m");
+	if (attr & A_UNDERLINE 	) printf("\033[4m");
+	if (attr & A_DUNDERLINE ) printf("\033[21m");
+	if (attr & A_BLINK 		) printf("\033[5m");
+	if (attr & A_RBLINK 	) printf("\033[6m");
+	if (attr & A_ITALIC 	) printf("\033[3m");
+	if (attr & A_REVERS 	) printf("\033[7m");
+	if (attr & A_STRIKE 	) printf("\033[9m");
+	if (attr & A_INV3ISIBLE ) printf("\033[8m");
+}
 
-/* Turn on the faint or decreased intensity */
-#define ffaint()		printf("\033[2m");
-
-/* Turn on the italic (Sometimes treated as inverse or blink) [not widely supported] */
-#define fitalic()		printf("\033[3m");
-
-/* Turn on the underline */
-#define funderline()	printf("\033[4m");
-
-/* Turn on the blinking */
-#define fblink()		printf("\033[5m");
-
-/* Turn on the rapid blinking [not widely supported] */
-#define frblink()		printf("\033[6m");
-
-/* Swaps foreground and background colors, */
-#define frevers()		printf("\033[7m");
-
-/* Hides text */
-#define fhide()			printf("\033[8m");
-
-/* Turn on the strike through */
-#define fstrike()		printf("\033[9m");
-
-/* Turn on the double underline */
-#define fdunderline()	printf("\033[21m");
-
-/* Turn off the bold */
-#define fboldoff()		printf("\033[22m");
-
-/* Turn off the italic */
-#define fitalicoff()	printf("\033[23m");
-
-/* Turn off the underline */
-#define funderlineoff()	printf("\033[24m");
-
-/* Turn off the blinking */
-#define fblinkoff()		printf("\033[25m");
-
-/* Turn off the revers text */
-#define freversoff()	printf("\033[27m");
-
-/* Shows the text */
-#define fshow()			printf("\033[28m");
-
-/* Turn off the strike through */
-#define fsrikeoff()		printf("\033[29m");
+/* Turn off font attributes */
+void attroff(int attr){
+	if (attr & A_BOLD 		) printf("\033[22m");
+	if (attr & A_UNDERLINE 	) printf("\033[24m");
+	if (attr & A_BLINK 		) printf("\033[25m");
+	if (attr & A_ITALIC 	) printf("\033[23m");
+	if (attr & A_REVERS 	) printf("\033[27m");
+	if (attr & A_STRIKE 	) printf("\033[29m");
+	if (attr & A_INVISIBLE 	) printf("\033[28m");
+}
 
 
 #endif
